@@ -31,7 +31,7 @@ extension ViewController: MediaKeyTapDelegate {
     }
     
     func handle(mediaKey: MediaKey, event: KeyEvent) {
-        guard webView.url?.host == "music.youtube.com" else {
+        guard webView.url?.host == "vibe.naver.com" else {
             return
         }
         
@@ -73,11 +73,11 @@ extension ViewController: MediaKeyTapDelegate {
     }
     
     @objc func likeTrack() {
-        clickElement(selector: ".ytmusic-player-bar .like")
+        clickElement(selector: ".vibemusic-player-bar .like")
     }
     
     @objc func dislikeTrack() {
-        clickElement(selector: ".ytmusic-player-bar .dislike")
+        clickElement(selector: ".vibemusic-player-bar .dislike")
     }
     
     @objc func shuffleTracks() {

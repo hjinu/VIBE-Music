@@ -26,7 +26,7 @@ class ViewController: NSViewController {
         
         view.alphaValue = 0
         
-        let url = URL(string: "https://music.youtube.com")!
+        let url = URL(string: "https://vibe.naver.com")!
         let request = URLRequest(url: url)
         webView.load(request)
         
@@ -164,7 +164,7 @@ extension ViewController: WKNavigationDelegate, WKUIDelegate {
     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        guard webView.url?.host == "music.youtube.com" else {
+        guard webView.url?.host == "vibe.naver.com" else {
             view.animator().alphaValue = 1
             return
         }
