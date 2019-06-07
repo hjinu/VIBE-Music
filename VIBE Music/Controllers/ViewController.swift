@@ -61,9 +61,9 @@ class ViewController: NSViewController {
         
         super.viewDidLayout()
       
-        var y = webView.isFlipped ? 22 : webView.frame.height - 39
-        
+        let y = webView.isFlipped ? 22 : webView.frame.height - 39
         /* This cause crash
+        
         if let btn = view.window?.standardWindowButton(.closeButton) {
             btn.removeFromSuperview()
             btn.setFrameOrigin(NSPoint(x: 17, y: y))

@@ -49,43 +49,42 @@ extension ViewController: MediaKeyTapDelegate {
     }
     
     @objc func playPause() {
-        clickElement(selector: ".play-pause-button")
+        clickElement(selector: ".player_controller .btn_now")
     }
     
     @objc func pause() {
         if (MediaCenter.default.isPlaying) {
-            clickElement(selector: ".play-pause-button")
+            clickElement(selector: ".player_controller btn_now")
         }
     }
     
     @objc func play() {
         if (!MediaCenter.default.isPlaying) {
-            clickElement(selector: ".play-pause-button")
+            clickElement(selector: ".player_controller .btn_now")
         }
     }
     
     @objc func nextTrack() {
-        clickElement(selector: ".next-button")
+        clickElement(selector: ".player_controller .btn_play_next")
     }
     
     @objc func previousTrack() {
-        clickElement(selector: ".previous-button")
+        clickElement(selector: ".player_controller .btn_play_prev")
     }
     
     @objc func likeTrack() {
-        clickElement(selector: ".vibemusic-player-bar .like")
+        clickElement(selector: ".player_controller .vibemusic-player-bar .btn_like")
     }
-    
-    @objc func dislikeTrack() {
-        clickElement(selector: ".vibemusic-player-bar .dislike")
+      @objc func dislikeTrack() {
+        clickElement(selector: ".player_controller .vibemusic-player-bar .btn_like")
     }
     
     @objc func shuffleTracks() {
-        clickElement(selector: ".shuffle")
+        clickElement(selector: ".player_controller .btn_shuffle")
     }
     
     @objc func repeatTracks() {
-        clickElement(selector: ".repeat")
+        clickElement(selector: ".player_controller .btn_repeat")
     }
     
     func clickElement(selector: String) {
