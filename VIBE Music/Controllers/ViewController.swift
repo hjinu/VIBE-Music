@@ -49,7 +49,7 @@ class ViewController: NSViewController {
         webView.allowsBackForwardNavigationGestures = true
         webView.uiDelegate = self
         webView.navigationDelegate = self
-        webView.customUserAgent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/11.1.1 Safari/605.1.15"
+        //webView.customUserAgent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/11.1.1 Safari/605.1.15"
         
         addMovableView()
         addNavigationButtons()
@@ -60,9 +60,10 @@ class ViewController: NSViewController {
     override func viewDidLayout() {
         
         super.viewDidLayout()
-
+      
         var y = webView.isFlipped ? 22 : webView.frame.height - 39
         
+        /* This cause crash
         if let btn = view.window?.standardWindowButton(.closeButton) {
             btn.removeFromSuperview()
             btn.setFrameOrigin(NSPoint(x: 17, y: y))
@@ -80,18 +81,19 @@ class ViewController: NSViewController {
             btn.setFrameOrigin(NSPoint(x: 57, y: y))
             view.addSubview(btn)
         }
-
+        */
         
+       
         movableView.frame = CGRect(x: 0, y: webView.isFlipped ? 0 : webView.frame.height - 20, width: webView.frame.width, height: 20)
         
-        y = webView.isFlipped ? 14 : webView.frame.height - 46
+        //y = webView.isFlipped ? 14 : webView.frame.height - 46
         
         var frame = backButton.frame
-        frame.origin = CGPoint(x: 90, y: y)
+        frame.origin = CGPoint(x: 10, y: y)
         backButton.frame = frame
         
         frame = forwardButton.frame
-        frame.origin = CGPoint(x: 130, y: y)
+        frame.origin = CGPoint(x: 50, y: y)
         forwardButton.frame = frame
         
     }

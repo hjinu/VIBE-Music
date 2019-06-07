@@ -10,10 +10,6 @@ body {
     background: #131313 !important;
 }
 
-ytmusic-nav-bar {
-/*    padding-left: 100px;*/
-}
-
-.logo.ytmusic-nav-bar {
+.logo {
     display: none;
 }
