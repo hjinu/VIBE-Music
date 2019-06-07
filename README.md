@@ -1,6 +1,6 @@
 ## VIBE Music
 
-A simple Mac app wrapper using WKWebView for [VIBE (바이브)](https://vibe.naver.com) that allows YouTube Music to run as a standalone process. Supports:
+A simple Mac app wrapper using WKWebView for [VIBE (바이브)](https://vibe.naver.com) that allows VIBE to run as a standalone process. Supports:
 
 - Media Keys
 - Keyboard shortcuts
