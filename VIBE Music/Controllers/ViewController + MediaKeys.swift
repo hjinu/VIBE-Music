@@ -54,7 +54,7 @@ extension ViewController: MediaKeyTapDelegate {
     
     @objc func pause() {
         if (MediaCenter.default.isPlaying) {
-            clickElement(selector: ".player_controller btn_now")
+            clickElement(selector: ".player_controller .btn_now")
         }
     }
     
@@ -73,10 +73,11 @@ extension ViewController: MediaKeyTapDelegate {
     }
     
     @objc func likeTrack() {
-        clickElement(selector: ".player_controller .vibemusic-player-bar .btn_like")
+        clickElementIfNot(selector: ".player_controller .btn_like", selectorIf: ".player_controller .option_area .on")
     }
-      @objc func dislikeTrack() {
-        clickElement(selector: ".player_controller .vibemusic-player-bar .btn_like")
+    
+    @objc func dislikeTrack() {
+        clickElementIf(selector: ".player_controller .btn_like", selectorIf: ".player_controller .option_area .on")
     }
     
     @objc func shuffleTracks() {
@@ -89,6 +90,24 @@ extension ViewController: MediaKeyTapDelegate {
     
     func clickElement(selector: String) {
         let js = "document.querySelector('\(selector)').click();";
+        webView.evaluateJavaScript(js) { (_, error) in
+            if let error = error {
+                print(error)
+            }
+        }
+    }
+    
+    func clickElementIf(selector: String, selectorIf: String) {
+        let js = "if(document.querySelector('\(selectorIf)'))document.querySelector('\(selector)').click();";
+        webView.evaluateJavaScript(js) { (_, error) in
+            if let error = error {
+                print(error)
+            }
+        }
+    }
+    
+    func clickElementIfNot(selector: String, selectorIf: String) {
+        let js = "if(!document.querySelector('\(selectorIf)'))document.querySelector('\(selector)').click();";
         webView.evaluateJavaScript(js) { (_, error) in
             if let error = error {
                 print(error)
