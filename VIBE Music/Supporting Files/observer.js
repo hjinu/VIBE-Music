@@ -2,19 +2,19 @@ window.setTimeout(function() {
              
   var observer = new MutationObserver(function(mutations) {
 
-    let bar = document.querySelector('#progress-bar');
+    let bar = document.querySelector('.player_controller .bar_play');
 
     window.webkit.messageHandlers.observer.postMessage({
-      title: document.querySelector('.ytmusic-player-bar.title').textContent,
-      by: document.querySelector('.ytmusic-player-bar.byline').textContent,
-      thumbnail: document.querySelector('#img').getAttribute('src'),
-      progress: parseInt(bar.getAttribute('value')),
+      title: document.querySelector('.player_controller .song .blind').nextSibling.textContent.trim(),
+      by: document.querySelector('.player_controller .artist .blind').nextSibling.textContent.trim(),
+      thumbnail: document.querySelector('.player_controller .thumb img').getAttribute('src'),
+      progress: parseInt(bar.getAttribute('aria-valuenow')),
       length: parseInt(bar.getAttribute('aria-valuemax')),
-      isPlaying: document.querySelector('.play-pause-button.ytmusic-player-bar').getAttribute('title') == window.yt.msgs_.YTP_PAUSE
+      isPlaying: document.querySelector('.player_controller .btn_now').classList.contains('play')
     })
   });
   
-  observer.observe(document.querySelector('ytmusic-player-bar'), {
+  observer.observe(document.querySelector('.player_controller'), {
     attributes: true,
     characterData: true,
     childList: true,
